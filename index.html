@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Image Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .image {
+            max-width: 100%;
+            height: 50px;
+            margin: 20px 0;
+        }
+        picture {
+            display: block;
+            width: 100%;
+        }
+        img {
+            width:10px;
+            height: 10px;
+        }
+        .explanation {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Responsive Image Demo using Picture Element</h1>
+    
+    <div class="image">
+        <picture>
+            <source media="(min-width: 1200px)" srcset="/api/placeholder/1200/800">
+            <source media="(min-width: 800px)" srcset="/api/placeholder/800/600">
+            <source media="(min-width: 400px)" srcset="/api/placeholder/400/300">
+            <!-- <img src="Screenshot 2024-09-14 134931.png" alt="Responsive image example"> -->
+             <img src="resp_image.png" alt=" Responsive Image">
+        </picture>
+    </div>
+
+    <div class="explanation">
+        <h2>How this affects Web Vitals</h2>
+        <p>Using the <code>&lt;picture&gt;</code> element for responsive images can significantly impact Web Vitals scores, particularly:</p>
+        <ul>
+            <li><strong>Largest Contentful Paint (LCP):</strong> By serving appropriately sized images for different screen sizes, we can reduce the time it takes to load and render the largest content element, improving LCP.</li>
+            <li><strong>Cumulative Layout Shift (CLS):</strong> Defining image dimensions or aspect ratios helps browsers allocate the correct amount of space before the image loads, reducing layout shifts.</li>
+            <li><strong>First Input Delay (FID):</strong> While not directly affected, faster image loading can free up browser resources, potentially improving overall interactivity.</li>
+        </ul>
+        <p>This ensures that users on different devices receive optimized images, leading to faster load times and a better overall user experience.</p>
+    </div>
+</body>
+</html>
